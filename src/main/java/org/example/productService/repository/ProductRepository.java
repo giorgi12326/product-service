@@ -2,6 +2,8 @@ package org.example.productService.repository;
 
 import jakarta.persistence.LockModeType;
 import org.example.productService.entity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 
@@ -19,4 +21,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
 //    @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Product> findProductById(Long id);
+
+
 }
