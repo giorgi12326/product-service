@@ -30,7 +30,7 @@ public class KafkaConsumer {
         log.info("Received message: {}", message);
     }
 
-    @KafkaListener(topics = "inventory-topic", groupId = "my-group")
+    @KafkaListener(topics = "product-topic", groupId = "my-group")
     @Transactional
     public void listenInventory(Event event) {
         Object rawPayload = event.getPayload();
@@ -45,6 +45,7 @@ public class KafkaConsumer {
         } else {
             throw new IllegalArgumentException("Unexpected payload type: " + rawPayload.getClass());
         }
+
 
         Product product = productRepository.findById(payload.getProductId())
                 .orElseThrow(() -> new ResourceNotFoundException("product not found"));

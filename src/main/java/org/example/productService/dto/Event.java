@@ -10,7 +10,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
-    private EventType eventType;
+    private String eventType;
     private Instant timestamp;
     private Object payload;
 }

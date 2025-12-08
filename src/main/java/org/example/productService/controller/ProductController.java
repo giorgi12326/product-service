@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping("/products-info")
-    ResponseEntity<List<ReserveResponseDTO>> getAndReserveProducts(@RequestBody List<ReserveProductDTO> reserveProductDTO){
+    ResponseEntity<List<ReserveResponseDTO>> getInfoAboutProducts(@RequestBody List<ReserveProductDTO> reserveProductDTO){
         return ResponseEntity.ok(productService.getInfoAboutProducts(reserveProductDTO));
     }
 

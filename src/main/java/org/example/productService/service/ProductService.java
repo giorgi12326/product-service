@@ -72,7 +72,7 @@ public class ProductService {
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("product Not Found with ID: " + id));
         productRepository.delete(product);
-        Event event = new Event(EventType.DELETED, Instant.now(),id);
+        Event event = new Event("PRODUCT_DELETED", Instant.now(),id);
         kafkaTemplate.send("product-event", event);
     }
 }
